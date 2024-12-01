@@ -1,2 +1,1 @@
-# obsidian-xtts-plugin
-A plugin for Obsidian that integrates XTTS v2 text-to-speech
+This repository is empty. Any task executed on it should be considered a new capability and needs to be created.
