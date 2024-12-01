@@ -1,0 +1,19 @@
+{
+  "name": "xtts-obsidian-plugin",
+  "version": "1.0.0",
+  "description": "XTTS v2 text-to-speech plugin for Obsidian",
+  "main": "src/main.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "obsidian": "^0.12.0",
+    "xtts-v2": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.0"
+  }
+}
