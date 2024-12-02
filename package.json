@@ -1,7 +1,7 @@
 {
-  "name": "obsidian-alltalk-tts",
-  "version": "0.1",
-  "description": "Text-to-speech plugin for Obsidian using local AllTalk TTS server",
+  "name": "alltalk-tts",
+  "version": "1.0.0",
+  "description": "Text-to-speech plugin integrates XTTSv2 engine using local AllTalk TTS server",
   "main": "main.js",
   "scripts": {
     "dev": "node esbuild.config.mjs",
