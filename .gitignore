@@ -1,0 +1,21 @@
+# Dependency directories
+node_modules/
+
+# Build output
+dist/
+build/
+*.js
+*.js.map
+data.json
+
+# Development files
+.DS_Store
+.vscode/
+*.log
+.env
+
+# Example files
+sillytavern-alltalk.js
+
+# Obsidian
+.obsidian/

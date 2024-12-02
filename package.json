@@ -1,19 +1,26 @@
 {
-  "name": "xtts-obsidian-plugin",
+  "name": "obsidian-alltalk-tts",
   "version": "1.0.0",
-  "description": "XTTS v2 text-to-speech plugin for Obsidian",
-  "main": "src/main.ts",
+  "description": "Text-to-speech plugin for Obsidian using local AllTalk TTS server",
+  "main": "main.js",
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc -w"
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production"
   },
-  "author": "Your Name",
+  "keywords": [
+    "obsidian",
+    "plugin",
+    "tts",
+    "text-to-speech",
+    "alltalk"
+  ],
+  "author": "mithadon",
   "license": "MIT",
-  "dependencies": {
-    "obsidian": "^0.12.0",
-    "xtts-v2": "^1.0.0"
-  },
   "devDependencies": {
-    "typescript": "^4.0.0"
+    "@types/node": "^16.11.6",
+    "builtin-modules": "^3.2.0",
+    "esbuild": "0.13.12",
+    "obsidian": "^1.4.11",
+    "typescript": "^4.4.4"
   }
 }

@@ -1,0 +1,73 @@
+.alltalk-status-container {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: var(--background-secondary);
+}
+
+.alltalk-status {
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+}
+
+/* Server status colors using Obsidian's native variables */
+.alltalk-status[data-status="Ready"] {
+    color: var(--color-green) !important;
+}
+
+.alltalk-status[data-status="Connecting"],
+.alltalk-status[data-status="Checking"] {
+    color: var(--color-orange) !important;
+}
+
+.alltalk-status[data-status="Offline"] {
+    color: var(--color-red) !important;
+}
+
+/* Audio embed styling */
+.alltalk-audio-embed {
+    margin: 1em 0;
+    padding: 1em;
+    border-radius: 8px;
+    background-color: var(--background-secondary);
+    border-left: 4px solid var(--interactive-accent);
+}
+
+.alltalk-audio-embed audio {
+    width: 100%;
+    margin-top: 0.5em;
+}
+
+/* Stop button styling */
+.alltalk-stop-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 10px;
+    cursor: pointer;
+    color: var(--text-normal);
+    background-color: var(--background-secondary);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.alltalk-stop-button:hover {
+    color: var(--text-error);
+    background-color: var(--background-modifier-error);
+}
+
+.alltalk-stop-button svg {
+    width: 16px;
+    height: 16px;
+}
+
+.alltalk-stop-button.generating {
+    color: var(--text-warning);
+    background-color: var(--background-modifier-warning);
+}
+
+.alltalk-stop-button.playing {
+    color: var(--text-accent);
+    background-color: var(--background-modifier-accent);
+}
