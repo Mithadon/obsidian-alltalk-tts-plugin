@@ -1,9 +1,9 @@
 {
-    "id": "obsidian-alltalk-tts",
+    "id": "alltalk-tts",
     "name": "AllTalk TTS",
-    "version": "0.1",
+    "version": "1.0.0",
     "minAppVersion": "0.15.0",
-    "description": "Text-to-speech plugin for Obsidian using local AllTalk TTS server",
+    "description": "Text-to-speech plugin integrates XTTSv2 engine using local AllTalk TTS server",
     "author": "Mithadon",
     "authorUrl": "https://github.com/mithadon",
     "isDesktopOnly": true,

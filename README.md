@@ -1,8 +1,8 @@
-# Obsidian AllTalk TTS Plugin
+# AllTalk TTS Plugin
 
-This plugin integrates [AllTalk TTS](https://github.com/erew123/alltalk_tts/) with Obsidian, allowing you to use your local AllTalk TTS server to generate high-quality text-to-speech from your notes. It uses the XTTS-v2 engine, which can be fine-tuned to faithfully reproduce natural speech patterns. I also drew inspiration from the AllTalk-TTS implementation within [SillyTavern](https://github.com/SillyTavern/SillyTavern).
+This plugin integrates [AllTalk TTS](https://github.com/erew123/alltalk_tts/) to generate high-quality text-to-speech from your notes. It uses the XTTS-v2 engine, which can be fine-tuned to faithfully reproduce natural speech patterns. I also drew inspiration from the AllTalk-TTS implementation within [SillyTavern](https://github.com/SillyTavern/SillyTavern).
 
-Obsidian-AllTalk-TTS enables generation of highlighted text or entire notes at once, with optional audio streaming or .wav file concatenation and saving. It is also possible to automatically embed the saved audio files within the markdown text.
+The plugin enables generation of highlighted text or entire notes at once, with optional audio streaming or .wav file concatenation and saving. It is also possible to automatically embed the saved audio files within the markdown text.
 
 ## Features
 
@@ -45,28 +45,28 @@ The plugin offers extensive configuration options:
 
 ### Required Files
 
-For manual installation, you need these files in your `.obsidian/plugins/obsidian-alltalk-tts/` folder:
+For manual installation, you need these files in your `.obsidian/plugins/alltalk-tts/` folder:
 
 ```
-obsidian-alltalk-tts/
+alltalk-tts/
 ├── main.js
 ├── manifest.json
 └── styles.css
 ```
 
-### From Obsidian Community Plugins (Not yet available)
+### From Community Plugins (Not yet available)
 
-1. Open Obsidian Settings
+1. Open Settings
 2. Go to Community Plugins and disable Safe Mode
 3. Click Browse and search for "AllTalk TTS"
 4. Install the plugin and enable it
 
 ### Manual Installation
 
-1. Create a folder called `obsidian-alltalk-tts` in your vault's `.obsidian/plugins/` directory
+1. Create a folder called `alltalk-tts` in your vault's `.obsidian/plugins/` directory
 2. Download `main.js`, `manifest.json`, and `styles.css` from the latest release
-3. Place both files in the `obsidian-alltalk-tts` folder you created
-4. Reload Obsidian
+3. Place both files in the `alltalk-tts` folder you created
+4. Reload the app
 5. Enable the plugin in Community Plugins settings
 
 ### Building from Source
@@ -76,7 +76,7 @@ If you want to build the plugin yourself:
 1. Clone the repository
 2. Run `npm install` to install dependencies
 3. Run `npm run build` to compile the plugin
-4. Copy `main.js`, `manifest.json`, and `styles.css` to your vault's `.obsidian/plugins/obsidian-alltalk-tts/` folder
+4. Copy `main.js`, `manifest.json`, and `styles.css` to your vault's `.obsidian/plugins/alltalk-tts/` folder
 
 ## Usage
 
