@@ -5,6 +5,7 @@ node_modules/
 dist/
 build/
 *.js
+!main.js
 *.js.map
 data.json
 
