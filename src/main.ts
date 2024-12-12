@@ -142,18 +142,21 @@ export default class XTTSPlugin extends Plugin {
         this.stopButton.addClass('mod-clickable');
         this.stopButton.addClass('alltalk-stop-button');
         setIcon(this.stopButton, 'stop-circle');
-        this.stopButton.style.display = 'none';
+        this.hideStopButton();
         this.stopButton.addEventListener('click', () => this.stopSpeech());
     }
 
     private showStopButton(text: string = '') {
         if (this.stopButton) {
-            this.stopButton.style.display = 'flex';
-            this.stopButton.style.alignItems = 'center';
-            this.stopButton.style.gap = '5px';
+            this.stopButton.removeClass('generating', 'playing');
             this.stopButton.empty();
             setIcon(this.stopButton, 'stop-circle');
             if (text) {
+                if (text.includes('Generating')) {
+                    this.stopButton.addClass('generating');
+                } else if (text.includes('Playing')) {
+                    this.stopButton.addClass('playing');
+                }
                 this.stopButton.createSpan({ text });
             }
         }
@@ -161,7 +164,7 @@ export default class XTTSPlugin extends Plugin {
 
     private hideStopButton() {
         if (this.stopButton) {
-            this.stopButton.style.display = 'none';
+            this.stopButton.removeClass('generating', 'playing');
         }
     }
 

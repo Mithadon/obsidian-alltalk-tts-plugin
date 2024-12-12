@@ -24,7 +24,7 @@ export class XTTSSettingTab extends PluginSettingTab {
 
     updateServerStatus(status: string): void {
         if (this.statusEl) {
-            this.statusEl.setText(`Server Status: ${status}`);
+            this.statusEl.setText(`Server status: ${status}`);
             this.statusEl.setAttribute('data-status', status.toLowerCase());
         }
     }
@@ -35,12 +35,12 @@ export class XTTSSettingTab extends PluginSettingTab {
         // Server Status
         const statusContainer = containerEl.createEl('div', { cls: 'alltalk-status-container' });
         this.statusEl = statusContainer.createEl('div', { 
-            text: `Server Status: ${this.plugin.serverStatus}`,
+            text: `Server status: ${this.plugin.serverStatus}`,
             cls: 'alltalk-status'
         });
         this.statusEl.setAttribute('data-status', this.plugin.serverStatus.toLowerCase());
 
-        containerEl.createEl('h3', { text: 'Server Settings' });
+        containerEl.createEl('h3', { text: 'Server' });
 
         new Setting(containerEl)
             .setName('Server URL')
@@ -64,7 +64,7 @@ export class XTTSSettingTab extends PluginSettingTab {
                 }));
 
         new Setting(containerEl)
-            .setName('Low VRAM Mode')
+            .setName('Low VRAM mode')
             .setDesc('Enable low VRAM mode for better compatibility with lower-end GPUs')
             .addToggle(toggle => toggle
                 .setValue(this.plugin.settings.lowVramEnabled)
@@ -76,7 +76,7 @@ export class XTTSSettingTab extends PluginSettingTab {
 
     private createVoiceSection(): void {
         const { containerEl } = this;
-        containerEl.createEl('h3', { text: 'Voice Settings' });
+        containerEl.createEl('h3', { text: 'Voice' });
 
         new Setting(containerEl)
             .setName('Voice')
@@ -109,11 +109,11 @@ export class XTTSSettingTab extends PluginSettingTab {
 
     private createRvcSection(): void {
         const { containerEl } = this;
-        containerEl.createEl('h3', { text: 'RVC Settings' });
+        containerEl.createEl('h3', { text: 'RVC' });
 
         new Setting(containerEl)
-            .setName('Use RVC Voice')
-            .setDesc('Enable RVC voice conversion')
+            .setName('RVC voice')
+            .setDesc('Enable Retrieval-based Voice Conversion')
             .addToggle(toggle => toggle
                 .setValue(this.plugin.settings.useRvc)
                 .onChange(async (value) => {
@@ -141,10 +141,10 @@ export class XTTSSettingTab extends PluginSettingTab {
 
     private createPlaybackSection(): void {
         const { containerEl } = this;
-        containerEl.createEl('h3', { text: 'Playback Settings' });
+        containerEl.createEl('h3', { text: 'Playback' });
 
         new Setting(containerEl)
-            .setName('Auto Playback')
+            .setName('Auto playback')
             .setDesc('Automatically play audio after generation')
             .addToggle(toggle => toggle
                 .setValue(this.plugin.settings.autoPlayback)
@@ -154,7 +154,7 @@ export class XTTSSettingTab extends PluginSettingTab {
                 }));
 
         new Setting(containerEl)
-            .setName('Playback Speed')
+            .setName('Playback speed')
             .setDesc('Adjust the speed of audio playback (0.5x to 2.0x)')
             .addSlider(slider => slider
                 .setLimits(0.5, 2.0, 0.1)
@@ -168,10 +168,10 @@ export class XTTSSettingTab extends PluginSettingTab {
 
     private createAudioSavingSection(): void {
         const { containerEl } = this;
-        containerEl.createEl('h3', { text: 'Audio Saving Settings' });
+        containerEl.createEl('h3', { text: 'Audio Saving' });
 
         new Setting(containerEl)
-            .setName('Save Audio Files')
+            .setName('Save audio files')
             .setDesc('Save generated audio files alongside notes')
             .addToggle(toggle => toggle
                 .setValue(this.plugin.settings.saveAudioFiles)
@@ -183,7 +183,7 @@ export class XTTSSettingTab extends PluginSettingTab {
 
         if (this.plugin.settings.saveAudioFiles) {
             new Setting(containerEl)
-                .setName('Audio Folder')
+                .setName('Audio folder')
                 .setDesc('Folder name for audio files (relative to note location)')
                 .addText(text => text
                     .setPlaceholder('audio')
@@ -194,7 +194,7 @@ export class XTTSSettingTab extends PluginSettingTab {
                     }));
 
             new Setting(containerEl)
-                .setName('Audio File Prefix')
+                .setName('Audio file prefix')
                 .setDesc('Optional prefix for audio files (leave empty to use note name)')
                 .addText(text => text
                     .setPlaceholder('custom-prefix')
@@ -205,8 +205,8 @@ export class XTTSSettingTab extends PluginSettingTab {
                     }));
 
             new Setting(containerEl)
-                .setName('Auto-embed Audio')
-                .setDesc('Automatically embed generated audio in notes')
+                .setName('Auto-embed audio')
+                .setDesc('Automatically embed generated .wav files in notes')
                 .addToggle(toggle => toggle
                     .setValue(this.plugin.settings.embedAfterGeneration)
                     .onChange(async (value) => {
@@ -218,10 +218,10 @@ export class XTTSSettingTab extends PluginSettingTab {
 
     private createAdvancedSection(): void {
         const { containerEl } = this;
-        containerEl.createEl('h3', { text: 'Advanced Settings' });
+        containerEl.createEl('h3', { text: 'Advanced' });
 
         new Setting(containerEl)
-            .setName('Maximum Chunk Size')
+            .setName('Maximum chunk size')
             .setDesc('Maximum number of sentences to process in each batch')
             .addSlider(slider => slider
                 .setLimits(1, 20, 1)
@@ -233,7 +233,7 @@ export class XTTSSettingTab extends PluginSettingTab {
                 }));
 
         new Setting(containerEl)
-            .setName('Streaming Mode')
+            .setName('Streaming mode')
             .setDesc('Enable streaming mode for faster response (disables narrator features)')
             .addToggle(toggle => toggle
                 .setValue(this.plugin.settings.streamingEnabled)
@@ -253,7 +253,7 @@ export class XTTSSettingTab extends PluginSettingTab {
         this.createTextProcessingSettings();
 
         new Setting(containerEl)
-            .setName('Debug Mode')
+            .setName('Debug mode')
             .setDesc('Show detailed debug messages during generation')
             .addToggle(toggle => toggle
                 .setValue(this.plugin.settings.debugMode)
@@ -266,7 +266,7 @@ export class XTTSSettingTab extends PluginSettingTab {
     private createNarratorSettings(): void {
         const { containerEl } = this;
         new Setting(containerEl)
-            .setName('Narrator Mode')
+            .setName('Narrator mode')
             .setDesc('Enable narrator for text outside quotes or asterisks')
             .addToggle(toggle => toggle
                 .setValue(this.plugin.settings.narratorEnabled)
@@ -278,7 +278,7 @@ export class XTTSSettingTab extends PluginSettingTab {
 
         if (this.plugin.settings.narratorEnabled) {
             new Setting(containerEl)
-                .setName('Narrator Voice')
+                .setName('Narrator voice')
                 .setDesc('Select the voice for narration')
                 .addDropdown(dropdown => {
                     this.plugin.availableVoices.forEach(voice => dropdown.addOption(voice, voice));
@@ -291,7 +291,7 @@ export class XTTSSettingTab extends PluginSettingTab {
                 });
 
             new Setting(containerEl)
-                .setName('Narrator RVC Voice')
+                .setName('Narrator RVC voice')
                 .setDesc('Select the RVC voice for narrator')
                 .addDropdown(dropdown => {
                     dropdown.addOption('Disabled', 'Disabled');
@@ -305,7 +305,7 @@ export class XTTSSettingTab extends PluginSettingTab {
                 });
 
             new Setting(containerEl)
-                .setName('Text Not Inside Quotes/Asterisks Is')
+                .setName('Text not inside quotes/asterisks is')
                 .setDesc('How to handle text not inside quotes or asterisks')
                 .addDropdown(dropdown => dropdown
                     .addOption('character', 'Character Voice')
@@ -322,7 +322,7 @@ export class XTTSSettingTab extends PluginSettingTab {
     private createTextProcessingSettings(): void {
         const { containerEl } = this;
         new Setting(containerEl)
-            .setName('Only Narrate Quotes')
+            .setName('Only narrate quotes')
             .setDesc('Only use narrator voice for quoted text')
             .addToggle(toggle => toggle
                 .setValue(this.plugin.settings.onlyNarrateQuotes)
@@ -332,7 +332,7 @@ export class XTTSSettingTab extends PluginSettingTab {
                 }));
 
         new Setting(containerEl)
-            .setName('Ignore Asterisk Content')
+            .setName('Ignore asterisk content')
             .setDesc('Ignore text between asterisks, including quotes')
             .addToggle(toggle => toggle
                 .setValue(this.plugin.settings.ignoreAsterisks)
@@ -342,7 +342,7 @@ export class XTTSSettingTab extends PluginSettingTab {
                 }));
 
         new Setting(containerEl)
-            .setName('Skip Codeblocks')
+            .setName('Skip codeblocks')
             .setDesc('Skip text within code blocks')
             .addToggle(toggle => toggle
                 .setValue(this.plugin.settings.skipCodeblocks)
@@ -352,7 +352,7 @@ export class XTTSSettingTab extends PluginSettingTab {
                 }));
 
         new Setting(containerEl)
-            .setName('Skip Tagged Blocks')
+            .setName('Skip tagged blocks')
             .setDesc('Skip text within <tagged> blocks')
             .addToggle(toggle => toggle
                 .setValue(this.plugin.settings.skipTaggedBlocks)
@@ -362,7 +362,7 @@ export class XTTSSettingTab extends PluginSettingTab {
                 }));
 
         new Setting(containerEl)
-            .setName('Pass Asterisks to TTS')
+            .setName('Pass asterisks to TTS')
             .setDesc('Include asterisk characters in TTS input')
             .addToggle(toggle => toggle
                 .setValue(this.plugin.settings.passAsterisksToTTS)
